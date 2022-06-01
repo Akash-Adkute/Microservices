@@ -1,0 +1,5 @@
+package com.ace.ratingsdataservice.Model;
+
+public class MovieRatingResponceBean {
+
+}

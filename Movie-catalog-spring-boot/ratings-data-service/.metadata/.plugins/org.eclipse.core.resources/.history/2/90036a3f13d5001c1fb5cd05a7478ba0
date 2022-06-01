@@ -1,0 +1,17 @@
+package com.ace.ratingsdataservice.Controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ace.ratingsdataservice.Model.MovieRatingBean;
+
+@RestController
+public class MovieRatingRestController {
+	
+	@GetMapping("/{movieId}")
+	public MovieRatingBean getMovieRating(@PathVariable String movieId) {
+		return new MovieRatingBean(movieId, "4");
+	}
+
+}

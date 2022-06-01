@@ -1,0 +1,29 @@
+package com.ace.moviecatalogservice.Controllers;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.ace.moviecatalogservice.Model.CatalogItem;
+import com.ace.moviecatalogservice.Model.MovieInfoBean;
+
+@RestController
+@RequestMapping("/catalog")
+public class MovieCatalogRestController {
+	
+	private RestTemplate restTemplate = new RestTemplate();
+	
+	@GetMapping("/{userId}")
+	public List<CatalogItem> getCatalog(@PathVariable String userId){
+		
+		MovieInfoBean movie = restTemplate.getForObject("http://localhost:9092/movie-info/1", MovieInfoBean.class);
+		return Arrays.asList(new CatalogItem(movie.getMovieName(), "Action Movie", "5"));
+	}
+
+}

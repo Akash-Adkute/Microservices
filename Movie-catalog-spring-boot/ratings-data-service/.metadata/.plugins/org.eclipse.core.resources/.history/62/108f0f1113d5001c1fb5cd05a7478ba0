@@ -1,0 +1,5 @@
+package com.ace.ratingsdataservice.Controller;
+
+public class MovieRatingRestController {
+
+}

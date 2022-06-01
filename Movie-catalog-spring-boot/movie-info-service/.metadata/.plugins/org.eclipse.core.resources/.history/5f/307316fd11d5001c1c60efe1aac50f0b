@@ -1,0 +1,5 @@
+package com.ace.movieinfoservice.Model;
+
+public class MovieInfoBean {
+
+}
